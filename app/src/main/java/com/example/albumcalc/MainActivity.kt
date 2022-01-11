@@ -19,12 +19,12 @@ class MainActivity : AppCompatActivity() {
             val bu:Int = Integer.parseInt(binding.editBu.text.toString())
             val meon:Int = Integer.parseInt(binding.editMeon.text.toString())
 
-            binding.FinalPrice.text = normal2floor(bu,meon)
+            binding.FinalPrice.text = code11(bu,meon)
         }
 
     }
 
-    fun normal2floor(Bu:Int, Meon:Int):String {
+    fun code11(Bu:Int, Meon:Int):String {
         val price = HashMap<Int, Int>()
         price.put(30,33270)
         price.put(60,30840)
