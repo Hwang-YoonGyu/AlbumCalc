@@ -82,4 +82,98 @@
         android:text="계산"
         app:layout_constraintStart_toEndOf="@+id/Won"
         app:layout_constraintTop_toTopOf="@+id/FinalPrice" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/code11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="11  " />
+
+        <RadioButton
+            android:id="@+id/code12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12  " />
+
+        <RadioButton
+            android:id="@+id/code13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="13  " />
+
+        <RadioButton
+            android:id="@+id/code21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="21  " />
+
+        <RadioButton
+            android:id="@+id/code22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="22  " />
+
+        <RadioButton
+            android:id="@+id/code23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="23  " />
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+
+        <CheckBox
+            android:id="@+id/IronBand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="철제밴드" />
+
+        <CheckBox
+            android:id="@+id/personal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="개인사진틀" />
+
+        <CheckBox
+            android:id="@+id/IronCover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="철제교표" />
+
+        <CheckBox
+            android:id="@+id/ThreeFloor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3단형" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/Alert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="411dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@ import android.renderscript.Sampler
 import com.example.albumcalc.databinding.ActivityMainBinding
 import java.text.DecimalFormat
 
-class MainActivity : AppCompatActivity() {
+class  MainActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
 
@@ -19,7 +19,30 @@ class MainActivity : AppCompatActivity() {
             val bu:Int = Integer.parseInt(binding.editBu.text.toString())
             val meon:Int = Integer.parseInt(binding.editMeon.text.toString())
 
-            binding.FinalPrice.text = code11(bu,meon)
+
+            if (binding.code11.isChecked) {
+                binding.FinalPrice.text = code11(bu, meon)
+            }
+            else if (binding.code12.isChecked) {
+                binding.FinalPrice.text = code12(bu, meon)
+            }
+            else if(binding.code12.isChecked) {
+                binding.FinalPrice.text = code12(bu, meon)
+            }
+            else if(binding.code13.isChecked) {
+                binding.FinalPrice.text = code13(bu, meon)
+            }
+            else if(binding.code21.isChecked) {
+                binding.FinalPrice.text = code21(bu, meon)
+            }
+            else if(binding.code22.isChecked) {
+                binding.FinalPrice.text = code22(bu, meon)
+            }
+            else if(binding.code23.isChecked) {
+                binding.FinalPrice.text = code23(bu, meon)
+            }
+
+
         }
 
     }
@@ -96,11 +119,24 @@ class MainActivity : AppCompatActivity() {
         System.out.println(d)
 
         System.out.println("--------------------------------------------")
-        2
-        val de = DecimalFormat("##0.0")
-        val final = de.format(d)
 
-        return final
+        var final = d - d%10
+
+        if (binding.IronBand.isChecked) {
+            final += 970
+        }
+        if (binding.personal.isChecked) {
+            final += 880
+        }
+        if(binding.IronCover.isChecked) {
+            final += 600
+        }
+        if (binding.ThreeFloor.isChecked) {
+            final += 1860
+        }
+
+
+        return final.toString()
 
     }
 
