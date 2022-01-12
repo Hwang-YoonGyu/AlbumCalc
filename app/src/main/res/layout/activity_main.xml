@@ -49,7 +49,7 @@
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginStart="50dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="120dp"
         android:text="가격이 표시됨"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -87,7 +87,7 @@
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="180dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -135,6 +135,7 @@
     </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/radioGroup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -172,8 +173,122 @@
         android:id="@+id/Alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="411dp" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="앨범코드"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="표지부착물"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup2"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup2" />
+
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2">
+
+        <TableRow>
+
+            <RadioButton
+                android:id="@+id/normalPU2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="일반PU 2단" />
+
+            <RadioButton
+                android:id="@+id/royalPU2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="고급PU 2단" />
+
+            <RadioButton
+                android:id="@+id/Woo2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="우단 2단" />
+
+            <RadioButton
+                android:id="@+id/Woo3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="우단 3단" />
+        </TableRow>
+        >
+
+        <TableRow>
+
+            <RadioButton
+                android:id="@+id/normalPU3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="일반PU 3단" />
+
+            <RadioButton
+                android:id="@+id/royalPU3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="고급PU 3단" />
+
+            <RadioButton
+                android:id="@+id/color2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="원색 2단" />
+
+            <RadioButton
+                android:id="@+id/color3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="원색 3단" />
+        </TableRow>
+        >
+
+        <TableRow>
+
+            <RadioButton
+                android:id="@+id/fourCross2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="포크로스 2단" />
+
+            <RadioButton
+                android:id="@+id/fourCross3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="포크로스 3단" />
+        </TableRow>
+    </TableLayout>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="53dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="표지"
+        app:layout_constraintBottom_toTopOf="@+id/table"
+        app:layout_constraintStart_toStartOf="@+id/table" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

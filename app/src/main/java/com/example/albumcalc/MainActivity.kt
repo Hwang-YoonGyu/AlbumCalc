@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.renderscript.Sampler
 import com.example.albumcalc.databinding.ActivityMainBinding
+
+
 import java.text.DecimalFormat
 
 class  MainActivity : AppCompatActivity() {
@@ -14,62 +16,295 @@ class  MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
         binding.button.setOnClickListener {
-            val bu:Int = Integer.parseInt(binding.editBu.text.toString())
-            val meon:Int = Integer.parseInt(binding.editMeon.text.toString())
+            binding.Alert.text = ""
+            if (!(binding.code11.isChecked)&&!(binding.code12.isChecked)&&!(binding.code13.isChecked)&&!(binding.code21.isChecked)&&!(binding.code22.isChecked)&&!(binding.code23.isChecked)) {
+                binding.Alert.text = "코드를 선택하세요"
+                return@setOnClickListener
+            }
 
+            var bu: Int = 0
+            var meon: Int = 0
 
-            if (binding.code11.isChecked) {
-                binding.FinalPrice.text = code11(bu, meon)
-            }
-            else if (binding.code12.isChecked) {
-                binding.FinalPrice.text = code12(bu, meon)
-            }
-            else if(binding.code12.isChecked) {
-                binding.FinalPrice.text = code12(bu, meon)
-            }
-            else if(binding.code13.isChecked) {
-                binding.FinalPrice.text = code13(bu, meon)
-            }
-            else if(binding.code21.isChecked) {
-                binding.FinalPrice.text = code21(bu, meon)
-            }
-            else if(binding.code22.isChecked) {
-                binding.FinalPrice.text = code22(bu, meon)
-            }
-            else if(binding.code23.isChecked) {
-                binding.FinalPrice.text = code23(bu, meon)
-            }
+            if(binding.editBu.text.toString()!="")
+                bu =Integer.parseInt(binding.editBu.text.toString())
+            else
+                binding.Alert.text = "부수와 면수를 다시 확인하세요"
+
+            if (binding.editMeon.text.toString()!="")
+                meon = Integer.parseInt(binding.editMeon.text.toString())
+            else
+                binding.Alert.text = "부수와 면수를 다시 확인하세요"
+
+            binding.FinalPrice.text = calc(bu, meon)
+
 
 
         }
-
+        binding.Woo2.setOnClickListener {
+            //binding.Woo2.isChecked = false
+            binding.Woo3.isChecked = false
+            binding.normalPU2.isChecked = false
+            binding.normalPU3.isChecked = false
+            binding.royalPU2.isChecked = false
+            binding.royalPU3.isChecked = false
+            binding.color2.isChecked = false
+            binding.color3.isChecked = false
+            binding.fourCross2.isChecked = false
+            binding.fourCross3.isChecked = false
+        }
+        binding.Woo3.setOnClickListener {
+            binding.Woo2.isChecked = false
+            //binding.Woo3.isChecked = false
+            binding.normalPU2.isChecked = false
+            binding.normalPU3.isChecked = false
+            binding.royalPU2.isChecked = false
+            binding.royalPU3.isChecked = false
+            binding.color2.isChecked = false
+            binding.color3.isChecked = false
+            binding.fourCross2.isChecked = false
+            binding.fourCross3.isChecked = false
+        }
+        binding.normalPU2.setOnClickListener {
+            binding.Woo2.isChecked = false
+            binding.Woo3.isChecked = false
+            //binding.normalPU2.isChecked = false
+            binding.normalPU3.isChecked = false
+            binding.royalPU2.isChecked = false
+            binding.royalPU3.isChecked = false
+            binding.color2.isChecked = false
+            binding.color3.isChecked = false
+            binding.fourCross2.isChecked = false
+            binding.fourCross3.isChecked = false
+        }
+        binding.normalPU3.setOnClickListener {
+            binding.Woo2.isChecked = false
+            binding.Woo3.isChecked = false
+            binding.normalPU2.isChecked = false
+            //binding.normalPU3.isChecked = false
+            binding.royalPU2.isChecked = false
+            binding.royalPU3.isChecked = false
+            binding.color2.isChecked = false
+            binding.color3.isChecked = false
+            binding.fourCross2.isChecked = false
+            binding.fourCross3.isChecked = false
+        }
+        binding.royalPU2.setOnClickListener {
+            binding.Woo2.isChecked = false
+            binding.Woo3.isChecked = false
+            binding.normalPU2.isChecked = false
+            binding.normalPU3.isChecked = false
+            //binding.royalPU2.isChecked = false
+            binding.royalPU3.isChecked = false
+            binding.color2.isChecked = false
+            binding.color3.isChecked = false
+            binding.fourCross2.isChecked = false
+            binding.fourCross3.isChecked = false
+        }
+        binding.royalPU3.setOnClickListener {
+            binding.Woo2.isChecked = false
+            binding.Woo3.isChecked = false
+            binding.normalPU2.isChecked = false
+            binding.normalPU3.isChecked = false
+            binding.royalPU2.isChecked = false
+            //binding.royalPU3.isChecked = false
+            binding.color2.isChecked = false
+            binding.color3.isChecked = false
+            binding.fourCross2.isChecked = false
+            binding.fourCross3.isChecked = false
+        }
+        binding.color2.setOnClickListener {
+            binding.Woo2.isChecked = false
+            binding.Woo3.isChecked = false
+            binding.normalPU2.isChecked = false
+            binding.normalPU3.isChecked = false
+            binding.royalPU2.isChecked = false
+            binding.royalPU3.isChecked = false
+            //binding.color2.isChecked = false
+            binding.color3.isChecked = false
+            binding.fourCross2.isChecked = false
+            binding.fourCross3.isChecked = false
+        }
+        binding.color3.setOnClickListener {
+            binding.Woo2.isChecked = false
+            binding.Woo3.isChecked = false
+            binding.normalPU2.isChecked = false
+            binding.normalPU3.isChecked = false
+            binding.royalPU2.isChecked = false
+            binding.royalPU3.isChecked = false
+            binding.color2.isChecked = false
+            //binding.color3.isChecked = false
+            binding.fourCross2.isChecked = false
+            binding.fourCross3.isChecked = false
+        }
+        binding.fourCross2.setOnClickListener {
+            binding.Woo2.isChecked = false
+            binding.Woo3.isChecked = false
+            binding.normalPU2.isChecked = false
+            binding.normalPU3.isChecked = false
+            binding.royalPU2.isChecked = false
+            binding.royalPU3.isChecked = false
+            binding.color2.isChecked = false
+            binding.color3.isChecked = false
+            //binding.fourCross2.isChecked = false
+            binding.fourCross3.isChecked = false
+        }
+        binding.fourCross3.setOnClickListener {
+            binding.Woo2.isChecked = false
+            binding.Woo3.isChecked = false
+            binding.normalPU2.isChecked = false
+            binding.normalPU3.isChecked = false
+            binding.royalPU2.isChecked = false
+            binding.royalPU3.isChecked = false
+            binding.color2.isChecked = false
+            binding.color3.isChecked = false
+            binding.fourCross2.isChecked = false
+            //binding.fourCross3.isChecked = false
+        }
     }
 
-    fun code11(Bu:Int, Meon:Int):String {
+    fun calc(Bu:Int, Meon:Int):String {
         val price = HashMap<Int, Int>()
-        price.put(30,33270)
-        price.put(60,30840)
-        price.put(90,29360)
-        price.put(120,28240)
-        price.put(150,27950)
-        price.put(180,25110)
-        price.put(210,24640)
-        price.put(240,24450)
-        price.put(270,24290)
-        price.put(300,24310)
-        price.put(330,24040)
-        price.put(360,23910)
-        price.put(390,23830)
-        price.put(420,23780)
-        price.put(450,23720)
-        price.put(480,23660)
-        price.put(510,23560)
-        price.put(540,23590)
-        price.put(570,23570)
-        price.put(600,23560)
-        price.put(630,23530)
+        if (binding.code11.isChecked) {
+            price.put(30,33270)
+            price.put(60,30840)
+            price.put(90,29360)
+            price.put(120,28240)
+            price.put(150,27950)
+            price.put(180,25110)
+            price.put(210,24640)
+            price.put(240,24450)
+            price.put(270,24290)
+            price.put(300,24310)
+            price.put(330,24040)
+            price.put(360,23910)
+            price.put(390,23830)
+            price.put(420,23780)
+            price.put(450,23720)
+            price.put(480,23660)
+            price.put(510,23560)
+            price.put(540,23590)
+            price.put(570,23570)
+            price.put(600,23560)
+            price.put(630,23530)
+        }
+        else if (binding.code12.isChecked) {
+            price.put(30,30140)
+            price.put(60,28390)
+            price.put(90,27310)
+            price.put(120,26510)
+            price.put(150,26320)
+            price.put(180,24250)
+            price.put(210,23930)
+            price.put(240,23820)
+            price.put(270,23730)
+            price.put(300,23770)
+            price.put(330,23000)
+            price.put(360,22940)
+            price.put(390,22890)
+            price.put(420,22890)
+            price.put(450,22840)
+            price.put(480,22810)
+            price.put(510,22840)
+            price.put(540,22850)
+            price.put(570,22860)
+            price.put(600,22880)
+            price.put(630,22880)
+        }
+        else if(binding.code13.isChecked) {
+            price.put(30,33270)
+            price.put(60,30840)
+            price.put(90,29360)
+            price.put(120,28240)
+            price.put(150,27950)
+            price.put(180,25110)
+            price.put(210,24640)
+            price.put(240,24450)
+            price.put(270,24290)
+            price.put(300,24310)
+            price.put(330,24040)
+            price.put(360,23910)
+            price.put(390,23830)
+            price.put(420,23780)
+            price.put(450,23720)
+            price.put(480,23660)
+            price.put(510,23560)
+            price.put(540,23590)
+            price.put(570,23570)
+            price.put(600,23560)
+            price.put(630,23530)
+        }
+        else if(binding.code21.isChecked) {
+            price.put(30,30120)
+            price.put(60,27670)
+            price.put(90,26180)
+            price.put(120,25060)
+            price.put(150,24760)
+            price.put(180,21910)
+            price.put(210,21430)
+            price.put(240,21240)
+            price.put(270,21070)
+            price.put(300,21090)
+            price.put(330,20810)
+            price.put(360,20680)
+            price.put(390,20570)
+            price.put(420,20510)
+            price.put(450,20450)
+            price.put(480,20370)
+            price.put(510,20270)
+            price.put(540,20290)
+            price.put(570,20260)
+            price.put(600,20250)
+            price.put(630,20190)
+        }
+        else if(binding.code22.isChecked) {
+            price.put(30,33280)
+            price.put(60,30870)
+            price.put(90,29380)
+            price.put(120,28260)
+            price.put(150,27970)
+            price.put(180,25130)
+            price.put(210,24680)
+            price.put(240,24490)
+            price.put(270,24310)
+            price.put(300,24340)
+            price.put(330,24060)
+            price.put(360,23940)
+            price.put(390,23850)
+            price.put(420,23810)
+            price.put(450,23750)
+            price.put(480,23680)
+            price.put(510,23590)
+            price.put(540,23610)
+            price.put(570,23600)
+            price.put(600,23590)
+            price.put(630,23550)
+        }
+        else if(binding.code23.isChecked) {
+            price.put(30,34750)
+            price.put(60,32340)
+            price.put(90,30850)
+            price.put(120,29730)
+            price.put(150,29440)
+            price.put(180,26600)
+            price.put(210,26150)
+            price.put(240,25960)
+            price.put(270,25780)
+            price.put(300,25810)
+            price.put(330,25530)
+            price.put(360,25410)
+            price.put(390,25320)
+            price.put(420,25280)
+            price.put(450,25220)
+            price.put(480,25150)
+            price.put(510,25060)
+            price.put(540,25080)
+            price.put(570,25070)
+            price.put(600,25060)
+            price.put(630,25020)
+        }
+
+
 
         val count = HashMap<Int, Int>()
         count.put(30,14)
@@ -137,12 +372,5 @@ class  MainActivity : AppCompatActivity() {
 
 
         return final.toString()
-
     }
-
-
-
-
-
-
 }
