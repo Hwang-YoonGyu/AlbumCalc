@@ -7,6 +7,9 @@ import com.example.albumcalc.databinding.ActivityMainBinding
 
 
 import java.text.DecimalFormat
+import kotlin.math.ceil
+import kotlin.math.floor
+import kotlin.time.measureTimedValue
 
 class  MainActivity : AppCompatActivity() {
     private val binding by lazy {
@@ -37,9 +40,6 @@ class  MainActivity : AppCompatActivity() {
                 binding.Alert.text = "부수와 면수를 다시 확인하세요"
 
             binding.FinalPrice.text = calc(bu, meon)
-
-
-
         }
         binding.Woo2.setOnClickListener {
             //binding.Woo2.isChecked = false
@@ -329,31 +329,31 @@ class  MainActivity : AppCompatActivity() {
         count.put(600,90)
         count.put(630,95)
 
-        System.out.println("--------------------------------------------")
+        System.out.println("\n--------------------------------------------\n아래 부 면당단가")
 
         val a:Int = price.get(Bu-Bu%30)?: 0
         System.out.println(a)
         val m:Int = count.get(Bu-Bu%30)?:0
         System.out.println(m)
-        val b:Double = a.toDouble() / (m+8).toDouble()
+        val b:Double = floor((a.toDouble() / (m+8).toDouble())*100)/100
         System.out.println(b)
 
-        System.out.println("--------------------------------------------")
+        System.out.println("\n--------------------------------------------\n윗 부 면당단가")
         val a2:Int = price.get(Bu+(30-(Bu%30)))?: 0
         System.out.println(a2)
         val m2:Int = count.get(Bu+(30-(Bu%30)))?: 0
         System.out.println(m2)
-        val b2:Double = a2.toDouble() / (m2+8).toDouble()
+        val b2:Double = floor((a2.toDouble() / (m2+8).toDouble())*100)/100
         System.out.println(b2)
 
-        System.out.println("--------------------------------------------")
+        System.out.println("\n--------------------------------------------\n요청 부 면당단가")
 
-        val c:Double = b2+((b-b2)/30*((Bu+(30-(Bu%30)))-Bu))
+        val c:Double = floor((b2+((b-b2)/30*((Bu+(30-(Bu%30)))-Bu)))*100)/100
         System.out.println(c)
         val d:Double = c * (Meon+8)
         System.out.println(d)
 
-        System.out.println("--------------------------------------------")
+        System.out.println("\n--------------------------------------------\n최종가격")
 
         var final = d - d%10
 
@@ -370,7 +370,31 @@ class  MainActivity : AppCompatActivity() {
             final += 1860
         }
 
+        if (binding.normalPU2.isChecked || binding.normalPU3.isChecked) {
+            final += 2630
+        }
+        else if (binding.royalPU2.isChecked || binding.royalPU3.isChecked) {
+            final += 2790
+        }
+        else if (binding.Woo2.isChecked || binding.Woo3.isChecked){
+            final += 2470
+        }
+        else if (binding.color2.isChecked || binding.color3.isChecked) {
+            final += 2330
+        }
+        else if (binding.fourCross2.isChecked || binding.fourCross3.isChecked) {
+            final += 2320
+        }
 
-        return final.toString()
+        val degeumA = final * Bu
+        System.out.println(degeumA)
+        val degeumB = degeumA + (degeumA * 0.0054)
+        System.out.println(degeumB)
+        val degeumC = degeumB / Bu
+        System.out.println(degeumC)
+        val degeumD = degeumC - degeumC%10
+        System.out.println(degeumD)
+
+        return degeumD.toString()
     }
 }
