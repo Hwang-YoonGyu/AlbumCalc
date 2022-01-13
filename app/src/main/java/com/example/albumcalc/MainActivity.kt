@@ -52,6 +52,7 @@ class  MainActivity : AppCompatActivity() {
             binding.color3.isChecked = false
             binding.fourCross2.isChecked = false
             binding.fourCross3.isChecked = false
+            binding.noChoice.isChecked = false
         }
         binding.Woo3.setOnClickListener {
             binding.Woo2.isChecked = false
@@ -64,6 +65,7 @@ class  MainActivity : AppCompatActivity() {
             binding.color3.isChecked = false
             binding.fourCross2.isChecked = false
             binding.fourCross3.isChecked = false
+            binding.noChoice.isChecked = false
         }
         binding.normalPU2.setOnClickListener {
             binding.Woo2.isChecked = false
@@ -76,6 +78,7 @@ class  MainActivity : AppCompatActivity() {
             binding.color3.isChecked = false
             binding.fourCross2.isChecked = false
             binding.fourCross3.isChecked = false
+            binding.noChoice.isChecked = false
         }
         binding.normalPU3.setOnClickListener {
             binding.Woo2.isChecked = false
@@ -88,6 +91,7 @@ class  MainActivity : AppCompatActivity() {
             binding.color3.isChecked = false
             binding.fourCross2.isChecked = false
             binding.fourCross3.isChecked = false
+            binding.noChoice.isChecked = false
         }
         binding.royalPU2.setOnClickListener {
             binding.Woo2.isChecked = false
@@ -100,6 +104,7 @@ class  MainActivity : AppCompatActivity() {
             binding.color3.isChecked = false
             binding.fourCross2.isChecked = false
             binding.fourCross3.isChecked = false
+            binding.noChoice.isChecked = false
         }
         binding.royalPU3.setOnClickListener {
             binding.Woo2.isChecked = false
@@ -112,6 +117,7 @@ class  MainActivity : AppCompatActivity() {
             binding.color3.isChecked = false
             binding.fourCross2.isChecked = false
             binding.fourCross3.isChecked = false
+            binding.noChoice.isChecked = false
         }
         binding.color2.setOnClickListener {
             binding.Woo2.isChecked = false
@@ -124,6 +130,7 @@ class  MainActivity : AppCompatActivity() {
             binding.color3.isChecked = false
             binding.fourCross2.isChecked = false
             binding.fourCross3.isChecked = false
+            binding.noChoice.isChecked = false
         }
         binding.color3.setOnClickListener {
             binding.Woo2.isChecked = false
@@ -136,6 +143,7 @@ class  MainActivity : AppCompatActivity() {
             //binding.color3.isChecked = false
             binding.fourCross2.isChecked = false
             binding.fourCross3.isChecked = false
+            binding.noChoice.isChecked = false
         }
         binding.fourCross2.setOnClickListener {
             binding.Woo2.isChecked = false
@@ -148,6 +156,7 @@ class  MainActivity : AppCompatActivity() {
             binding.color3.isChecked = false
             //binding.fourCross2.isChecked = false
             binding.fourCross3.isChecked = false
+            binding.noChoice.isChecked = false
         }
         binding.fourCross3.setOnClickListener {
             binding.Woo2.isChecked = false
@@ -160,6 +169,20 @@ class  MainActivity : AppCompatActivity() {
             binding.color3.isChecked = false
             binding.fourCross2.isChecked = false
             //binding.fourCross3.isChecked = false
+            binding.noChoice.isChecked = false
+        }
+        binding.noChoice.setOnClickListener {
+            binding.Woo2.isChecked = false
+            binding.Woo3.isChecked = false
+            binding.normalPU2.isChecked = false
+            binding.normalPU3.isChecked = false
+            binding.royalPU2.isChecked = false
+            binding.royalPU3.isChecked = false
+            binding.color2.isChecked = false
+            binding.color3.isChecked = false
+            binding.fourCross2.isChecked = false
+            binding.fourCross3.isChecked = false
+            //binding.noChoice.isChecked = false
         }
     }
 
@@ -189,6 +212,29 @@ class  MainActivity : AppCompatActivity() {
             price.put(630,23530)
         }
         else if (binding.code12.isChecked) {
+            price.put(30,34740)
+            price.put(60,32310)
+            price.put(90,30830)
+            price.put(120,29710)
+            price.put(150,29420)
+            price.put(180,26580)
+            price.put(210,26110)
+            price.put(240,25920)
+            price.put(270,25760)
+            price.put(300,25780)
+            price.put(330,25510)
+            price.put(360,25380)
+            price.put(390,25300)
+            price.put(420,25250)
+            price.put(450,25190)
+            price.put(480,25130)
+            price.put(510,25030)
+            price.put(540,25060)
+            price.put(570,25040)
+            price.put(600,25030)
+            price.put(630,25000)
+        }
+        else if(binding.code13.isChecked) {
             price.put(30,30140)
             price.put(60,28390)
             price.put(90,27310)
@@ -203,36 +249,13 @@ class  MainActivity : AppCompatActivity() {
             price.put(360,22940)
             price.put(390,22890)
             price.put(420,22890)
-            price.put(450,22840)
-            price.put(480,22810)
-            price.put(510,22840)
-            price.put(540,22850)
+            price.put(450,22870)
+            price.put(480,22840)
+            price.put(510,22810)
+            price.put(540,22840)
             price.put(570,22860)
             price.put(600,22880)
             price.put(630,22880)
-        }
-        else if(binding.code13.isChecked) {
-            price.put(30,33270)
-            price.put(60,30840)
-            price.put(90,29360)
-            price.put(120,28240)
-            price.put(150,27950)
-            price.put(180,25110)
-            price.put(210,24640)
-            price.put(240,24450)
-            price.put(270,24290)
-            price.put(300,24310)
-            price.put(330,24040)
-            price.put(360,23910)
-            price.put(390,23830)
-            price.put(420,23780)
-            price.put(450,23720)
-            price.put(480,23660)
-            price.put(510,23560)
-            price.put(540,23590)
-            price.put(570,23570)
-            price.put(600,23560)
-            price.put(630,23530)
         }
         else if(binding.code21.isChecked) {
             price.put(30,30120)
@@ -327,7 +350,7 @@ class  MainActivity : AppCompatActivity() {
         count.put(540,82)
         count.put(570,86)
         count.put(600,90)
-        count.put(630,95)
+        count.put(630,94)
 
         System.out.println("\n--------------------------------------------\n아래 부 면당단가")
 
