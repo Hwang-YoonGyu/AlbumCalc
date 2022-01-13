@@ -395,6 +395,12 @@ class  MainActivity : AppCompatActivity() {
         val degeumD = degeumC - degeumC%10
         System.out.println(degeumD)
 
+
+
+
+
+
+
         return degeumD.toString()
     }
 }
