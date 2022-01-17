@@ -3,6 +3,10 @@ package com.example.albumcalc
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.renderscript.Sampler
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import com.example.albumcalc.databinding.ActivityMainBinding
 
 
@@ -16,15 +20,75 @@ class  MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
 
     }
+    var CodeDataPositon = "11:신사절"
+    var CoverDataPosition = "선택안함"
+    private fun setupSpinnerCode() {
+        var codeData = resources.getStringArray(R.array.code)
+        var adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, codeData)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.codeSpinner.adapter = adapter
+
+    }
+    private fun setupSpinnerCover() {
+        val coverData = resources.getStringArray(R.array.cover)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, coverData)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.coverSpinner.adapter = adapter
+    }
+
+    private fun setupSpinnerHandler() {
+        binding.codeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                //binding.txtYear.text = "Selected: ${binding.spinnerYear.getItemAtPosition(position)}"
+                CodeDataPositon = binding.codeSpinner.getItemAtPosition(position).toString()
+                System.out.println(CodeDataPositon)
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+
+        binding.coverSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                //binding.txtMonth.text = "Selected: ${binding.spinnerMonth.getItemAtPosition(position)}"
+                CoverDataPosition = binding.coverSpinner.getItemAtPosition(position).toString()
+                System.out.println(CoverDataPosition)
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+
+        setupSpinnerCode()
+        setupSpinnerCover()
+        setupSpinnerHandler()
+
+
+
+
         binding.button.setOnClickListener {
             binding.Alert.text = ""
-            if (!(binding.code11.isChecked)&&!(binding.code12.isChecked)&&!(binding.code13.isChecked)&&!(binding.code21.isChecked)&&!(binding.code22.isChecked)&&!(binding.code23.isChecked)) {
+            /*if (!(binding.code11.isChecked)&&!(binding.code12.isChecked)&&!(binding.code13.isChecked)&&!(binding.code21.isChecked)&&!(binding.code22.isChecked)&&!(binding.code23.isChecked)) {
                 binding.Alert.text = "코드를 선택하세요"
                 return@setOnClickListener
-            }
+            }*/
 
             var bu: Int = 0
             var meon: Int = 0
@@ -41,6 +105,7 @@ class  MainActivity : AppCompatActivity() {
 
             binding.FinalPrice.text = calc(bu, meon)
         }
+        /*
         binding.Woo2.setOnClickListener {
             //binding.Woo2.isChecked = false
             binding.Woo3.isChecked = false
@@ -183,12 +248,12 @@ class  MainActivity : AppCompatActivity() {
             binding.fourCross2.isChecked = false
             binding.fourCross3.isChecked = false
             //binding.noChoice.isChecked = false
-        }
+        }*/
     }
 
     fun calc(Bu:Int, Meon:Int):String {
         val price = HashMap<Int, Int>()
-        if (binding.code11.isChecked) {
+        if (CodeDataPositon.equals("신사절 250*315")) {
             price.put(30,33270)
             price.put(60,30840)
             price.put(90,29360)
@@ -211,7 +276,7 @@ class  MainActivity : AppCompatActivity() {
             price.put(600,23560)
             price.put(630,23530)
         }
-        else if (binding.code12.isChecked) {
+        else if (CodeDataPositon.equals("대사절 250*335")) {
             price.put(30,34740)
             price.put(60,32310)
             price.put(90,30830)
@@ -234,7 +299,7 @@ class  MainActivity : AppCompatActivity() {
             price.put(600,25030)
             price.put(630,25000)
         }
-        else if(binding.code13.isChecked) {
+        else if(CodeDataPositon.equals("정사절 250*250")) {
             price.put(30,30140)
             price.put(60,28390)
             price.put(90,27310)
@@ -257,7 +322,7 @@ class  MainActivity : AppCompatActivity() {
             price.put(600,22880)
             price.put(630,22880)
         }
-        else if(binding.code21.isChecked) {
+        else if(CodeDataPositon.equals("국팔절 220*297")) {
             price.put(30,30120)
             price.put(60,27670)
             price.put(90,26180)
@@ -280,7 +345,7 @@ class  MainActivity : AppCompatActivity() {
             price.put(600,20250)
             price.put(630,20190)
         }
-        else if(binding.code22.isChecked) {
+        else if(CodeDataPositon.equals("신사절면지 250*315")) {
             price.put(30,33280)
             price.put(60,30870)
             price.put(90,29380)
@@ -303,7 +368,7 @@ class  MainActivity : AppCompatActivity() {
             price.put(600,23590)
             price.put(630,23550)
         }
-        else if(binding.code23.isChecked) {
+        else if(CodeDataPositon.equals("대사절면지 250*335")) {
             price.put(30,34750)
             price.put(60,32340)
             price.put(90,30850)
@@ -393,19 +458,19 @@ class  MainActivity : AppCompatActivity() {
             final += 1860
         }
 
-        if (binding.normalPU2.isChecked || binding.normalPU3.isChecked) {
+        if (CoverDataPosition.equals("일반PU2단") || CoverDataPosition.equals("일반PU3단")) {
             final += 2630
         }
-        else if (binding.royalPU2.isChecked || binding.royalPU3.isChecked) {
+        else if (CoverDataPosition.equals("고급PU2단") || CoverDataPosition.equals("고급PU3단")) {
             final += 2790
         }
-        else if (binding.Woo2.isChecked || binding.Woo3.isChecked){
+        else if (CoverDataPosition.equals("우단2단") || CoverDataPosition.equals("우단3단")){
             final += 2470
         }
-        else if (binding.color2.isChecked || binding.color3.isChecked) {
+        else if (CoverDataPosition.equals("원색2단") || CoverDataPosition.equals("원색3단")) {
             final += 2330
         }
-        else if (binding.fourCross2.isChecked || binding.fourCross3.isChecked) {
+        else if (CoverDataPosition.equals("포크로스2단") || CoverDataPosition.equals("포크로스3단")) {
             final += 2320
         }
 

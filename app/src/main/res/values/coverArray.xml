@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cover">
+        <item>선택안함</item>
+        <item>일반PU2단</item>
+        <item>일반PU3단</item>
+        <item>고급PU2단</item>
+        <item>고급PU3단</item>
+        <item>우단2단</item>
+        <item>우단3단</item>
+        <item>원색2단</item>
+        <item>원색3단</item>
+        <item>포크로스2단</item>
+        <item>포크로스3단</item>
+
+    </string-array>
+
+</resources>

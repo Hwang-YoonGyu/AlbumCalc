@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="부수"
         android:textColor="#000000"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/editBu"
         app:layout_constraintStart_toStartOf="@+id/editBu" />
 
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:text="면수"
         android:textColor="#000000"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/editMeon"
         app:layout_constraintStart_toStartOf="@+id/editMeon" />
 
@@ -56,7 +58,7 @@
         android:text="가격이 표시됨"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/table" />
+        app:layout_constraintTop_toBottomOf="@+id/coverSpinner" />
 
     <TextView
         android:id="@+id/Won"
@@ -95,6 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,35 +147,39 @@
         android:id="@+id/radioGroup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+        app:layout_constraintTop_toBottomOf="@+id/codeSpinner">
 
         <CheckBox
             android:id="@+id/IronBand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="철제밴드" />
+            android:text="철제밴드"
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/personal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="개인사진틀" />
+            android:text="개인사진틀"
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/IronCover"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="철제교표" />
+            android:text="철제교표"
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/ThreeFloor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3단형" />
+            android:text="3단형"
+            android:textSize="16sp" />
     </RadioGroup>
 
     <TextView
@@ -191,8 +198,9 @@
         android:layout_height="wrap_content"
         android:text="앨범코드"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
-        app:layout_constraintStart_toStartOf="@+id/radioGroup" />
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/codeSpinner"
+        app:layout_constraintStart_toStartOf="@+id/codeSpinner" />
 
     <TextView
         android:id="@+id/textView2"
@@ -200,6 +208,7 @@
         android:layout_height="wrap_content"
         android:text="표지부착물"
         android:textColor="#000000"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup2"
         app:layout_constraintStart_toStartOf="@+id/radioGroup2" />
 
@@ -209,6 +218,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup2">
@@ -303,7 +313,26 @@
         android:layout_height="wrap_content"
         android:text="표지"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/table"
-        app:layout_constraintStart_toStartOf="@+id/table" />
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/coverSpinner"
+        app:layout_constraintStart_toStartOf="@+id/coverSpinner" />
+
+    <Spinner
+        android:id="@+id/codeSpinner"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editBu" />
+
+    <Spinner
+        android:id="@+id/coverSpinner"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
