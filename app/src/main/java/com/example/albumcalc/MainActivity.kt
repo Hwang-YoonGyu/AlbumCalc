@@ -391,6 +391,32 @@ class  MainActivity : AppCompatActivity() {
             price.put(600,25060)
             price.put(630,25020)
         }
+        else if(CodeDataPositon.equals("290*245")) {
+            price.put(30,32730)
+            price.put(60,30280)
+            price.put(90,28790)
+            price.put(120,27670)
+            price.put(150,27370)
+            price.put(180,24520)
+            price.put(210,24040)
+            price.put(240,23850)
+            price.put(270,23680)
+            price.put(300,23700)
+            price.put(330,23420)
+            price.put(360,23290)
+            price.put(390,23180)
+            price.put(420,23120)
+            price.put(450,23060)
+            price.put(480,22980)
+            price.put(510,22880)
+            price.put(540,22900)
+            price.put(570,22870)
+            price.put(600,22860)
+            price.put(630,22800)
+        }
+
+
+
 
 
 
@@ -459,19 +485,19 @@ class  MainActivity : AppCompatActivity() {
         }
 
         if (CoverDataPosition.equals("일반PU2단") || CoverDataPosition.equals("일반PU3단")) {
-            final += 2630
+            final += 0
         }
         else if (CoverDataPosition.equals("고급PU2단") || CoverDataPosition.equals("고급PU3단")) {
-            final += 2790
+            final += 160
         }
         else if (CoverDataPosition.equals("우단2단") || CoverDataPosition.equals("우단3단")){
-            final += 2470
+            final += 160
         }
         else if (CoverDataPosition.equals("원색2단") || CoverDataPosition.equals("원색3단")) {
-            final += 2330
+            final += 300
         }
         else if (CoverDataPosition.equals("포크로스2단") || CoverDataPosition.equals("포크로스3단")) {
-            final += 2320
+            final += 310
         }
 
         val degeumA = final * Bu
