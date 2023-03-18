@@ -75,20 +75,12 @@ class  MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-
         setupSpinnerCode()
         setupSpinnerCover()
         setupSpinnerHandler()
 
-
-
-
         binding.button.setOnClickListener {
             binding.Alert.text = ""
-            /*if (!(binding.code11.isChecked)&&!(binding.code12.isChecked)&&!(binding.code13.isChecked)&&!(binding.code21.isChecked)&&!(binding.code22.isChecked)&&!(binding.code23.isChecked)) {
-                binding.Alert.text = "코드를 선택하세요"
-                return@setOnClickListener
-            }*/
 
             var bu: Int = 0
             var meon: Int = 0
@@ -105,150 +97,6 @@ class  MainActivity : AppCompatActivity() {
 
             binding.FinalPrice.text = calc(bu, meon)
         }
-        /*
-        binding.Woo2.setOnClickListener {
-            //binding.Woo2.isChecked = false
-            binding.Woo3.isChecked = false
-            binding.normalPU2.isChecked = false
-            binding.normalPU3.isChecked = false
-            binding.royalPU2.isChecked = false
-            binding.royalPU3.isChecked = false
-            binding.color2.isChecked = false
-            binding.color3.isChecked = false
-            binding.fourCross2.isChecked = false
-            binding.fourCross3.isChecked = false
-            binding.noChoice.isChecked = false
-        }
-        binding.Woo3.setOnClickListener {
-            binding.Woo2.isChecked = false
-            //binding.Woo3.isChecked = false
-            binding.normalPU2.isChecked = false
-            binding.normalPU3.isChecked = false
-            binding.royalPU2.isChecked = false
-            binding.royalPU3.isChecked = false
-            binding.color2.isChecked = false
-            binding.color3.isChecked = false
-            binding.fourCross2.isChecked = false
-            binding.fourCross3.isChecked = false
-            binding.noChoice.isChecked = false
-        }
-        binding.normalPU2.setOnClickListener {
-            binding.Woo2.isChecked = false
-            binding.Woo3.isChecked = false
-            //binding.normalPU2.isChecked = false
-            binding.normalPU3.isChecked = false
-            binding.royalPU2.isChecked = false
-            binding.royalPU3.isChecked = false
-            binding.color2.isChecked = false
-            binding.color3.isChecked = false
-            binding.fourCross2.isChecked = false
-            binding.fourCross3.isChecked = false
-            binding.noChoice.isChecked = false
-        }
-        binding.normalPU3.setOnClickListener {
-            binding.Woo2.isChecked = false
-            binding.Woo3.isChecked = false
-            binding.normalPU2.isChecked = false
-            //binding.normalPU3.isChecked = false
-            binding.royalPU2.isChecked = false
-            binding.royalPU3.isChecked = false
-            binding.color2.isChecked = false
-            binding.color3.isChecked = false
-            binding.fourCross2.isChecked = false
-            binding.fourCross3.isChecked = false
-            binding.noChoice.isChecked = false
-        }
-        binding.royalPU2.setOnClickListener {
-            binding.Woo2.isChecked = false
-            binding.Woo3.isChecked = false
-            binding.normalPU2.isChecked = false
-            binding.normalPU3.isChecked = false
-            //binding.royalPU2.isChecked = false
-            binding.royalPU3.isChecked = false
-            binding.color2.isChecked = false
-            binding.color3.isChecked = false
-            binding.fourCross2.isChecked = false
-            binding.fourCross3.isChecked = false
-            binding.noChoice.isChecked = false
-        }
-        binding.royalPU3.setOnClickListener {
-            binding.Woo2.isChecked = false
-            binding.Woo3.isChecked = false
-            binding.normalPU2.isChecked = false
-            binding.normalPU3.isChecked = false
-            binding.royalPU2.isChecked = false
-            //binding.royalPU3.isChecked = false
-            binding.color2.isChecked = false
-            binding.color3.isChecked = false
-            binding.fourCross2.isChecked = false
-            binding.fourCross3.isChecked = false
-            binding.noChoice.isChecked = false
-        }
-        binding.color2.setOnClickListener {
-            binding.Woo2.isChecked = false
-            binding.Woo3.isChecked = false
-            binding.normalPU2.isChecked = false
-            binding.normalPU3.isChecked = false
-            binding.royalPU2.isChecked = false
-            binding.royalPU3.isChecked = false
-            //binding.color2.isChecked = false
-            binding.color3.isChecked = false
-            binding.fourCross2.isChecked = false
-            binding.fourCross3.isChecked = false
-            binding.noChoice.isChecked = false
-        }
-        binding.color3.setOnClickListener {
-            binding.Woo2.isChecked = false
-            binding.Woo3.isChecked = false
-            binding.normalPU2.isChecked = false
-            binding.normalPU3.isChecked = false
-            binding.royalPU2.isChecked = false
-            binding.royalPU3.isChecked = false
-            binding.color2.isChecked = false
-            //binding.color3.isChecked = false
-            binding.fourCross2.isChecked = false
-            binding.fourCross3.isChecked = false
-            binding.noChoice.isChecked = false
-        }
-        binding.fourCross2.setOnClickListener {
-            binding.Woo2.isChecked = false
-            binding.Woo3.isChecked = false
-            binding.normalPU2.isChecked = false
-            binding.normalPU3.isChecked = false
-            binding.royalPU2.isChecked = false
-            binding.royalPU3.isChecked = false
-            binding.color2.isChecked = false
-            binding.color3.isChecked = false
-            //binding.fourCross2.isChecked = false
-            binding.fourCross3.isChecked = false
-            binding.noChoice.isChecked = false
-        }
-        binding.fourCross3.setOnClickListener {
-            binding.Woo2.isChecked = false
-            binding.Woo3.isChecked = false
-            binding.normalPU2.isChecked = false
-            binding.normalPU3.isChecked = false
-            binding.royalPU2.isChecked = false
-            binding.royalPU3.isChecked = false
-            binding.color2.isChecked = false
-            binding.color3.isChecked = false
-            binding.fourCross2.isChecked = false
-            //binding.fourCross3.isChecked = false
-            binding.noChoice.isChecked = false
-        }
-        binding.noChoice.setOnClickListener {
-            binding.Woo2.isChecked = false
-            binding.Woo3.isChecked = false
-            binding.normalPU2.isChecked = false
-            binding.normalPU3.isChecked = false
-            binding.royalPU2.isChecked = false
-            binding.royalPU3.isChecked = false
-            binding.color2.isChecked = false
-            binding.color3.isChecked = false
-            binding.fourCross2.isChecked = false
-            binding.fourCross3.isChecked = false
-            //binding.noChoice.isChecked = false
-        }*/
     }
 
     fun calc(Bu:Int, Meon:Int):String {

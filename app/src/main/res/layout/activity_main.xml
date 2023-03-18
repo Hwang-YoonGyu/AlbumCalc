@@ -92,58 +92,6 @@
         app:layout_constraintTop_toTopOf="@+id/FinalPrice" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editBu">
-
-        <RadioButton
-            android:id="@+id/code11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="11  " />
-
-        <RadioButton
-            android:id="@+id/code12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="12  " />
-
-        <RadioButton
-            android:id="@+id/code13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="13  " />
-
-        <RadioButton
-            android:id="@+id/code21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="21  " />
-
-        <RadioButton
-            android:id="@+id/code22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="22  " />
-
-        <RadioButton
-            android:id="@+id/code23"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="23  " />
-    </RadioGroup>
-
-    <RadioGroup
         android:id="@+id/radioGroup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -153,33 +101,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/codeSpinner">
 
-        <CheckBox
-            android:id="@+id/IronBand"
+        <RadioGroup
+            android:id="@+id/radioGroup3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="철제밴드"
-            android:textSize="16sp" />
+            android:layout_height="wrap_content">
 
-        <CheckBox
-            android:id="@+id/personal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="개인사진틀"
-            android:textSize="16sp" />
+            <CheckBox
+                android:id="@+id/ThreeFloor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3단형"
+                android:textSize="16sp" />
 
-        <CheckBox
-            android:id="@+id/IronCover"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="철제교표"
-            android:textSize="16sp" />
+            <CheckBox
+                android:id="@+id/IronCover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="철제교표"
+                android:textSize="16sp" />
+        </RadioGroup>
 
-        <CheckBox
-            android:id="@+id/ThreeFloor"
+        <RadioGroup
+            android:id="@+id/radioGroup4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3단형"
-            android:textSize="16sp" />
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:id="@+id/personal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="개인사진틀"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/IronBand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="철제밴드"
+                android:textSize="16sp" />
+        </RadioGroup>
+
     </RadioGroup>
 
     <TextView
@@ -212,101 +173,6 @@
         app:layout_constraintBottom_toTopOf="@+id/radioGroup2"
         app:layout_constraintStart_toStartOf="@+id/radioGroup2" />
 
-    <TableLayout
-        android:id="@+id/table"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup2">
-
-        <TableRow>
-
-            <RadioButton
-                android:id="@+id/normalPU2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="일반PU 2단" />
-
-            <RadioButton
-                android:id="@+id/royalPU2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="고급PU 2단" />
-
-            <RadioButton
-                android:id="@+id/Woo2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="우단 2단" />
-
-            <RadioButton
-                android:id="@+id/Woo3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="우단 3단" />
-        </TableRow>
-        >
-
-        <TableRow>
-
-            <RadioButton
-                android:id="@+id/normalPU3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="일반PU 3단" />
-
-            <RadioButton
-                android:id="@+id/royalPU3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="고급PU 3단" />
-
-            <RadioButton
-                android:id="@+id/color2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="원색 2단" />
-
-            <RadioButton
-                android:id="@+id/color3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="원색 3단" />
-        </TableRow>
-        >
-
-        <TableRow>
-
-            <RadioButton
-                android:id="@+id/fourCross2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="포크로스 2단" />
-
-            <RadioButton
-                android:id="@+id/fourCross3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="포크로스 3단" />
-
-            <RadioButton
-                android:id="@+id/noChoice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="선택안함" />
-        </TableRow>
-    </TableLayout>
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="53dp" />
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -330,9 +196,9 @@
         android:id="@+id/coverSpinner"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/table" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
